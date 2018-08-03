@@ -1,0 +1,16 @@
+{
+  "name": "marcandreappel/textr",
+  "description": "Text manipulation and sanitizing helpers",
+  "minimum-stability": "stable",
+  "license": "LGPL-3.0",
+  "authors": [
+    {
+      "name": "Marc-André Appel",
+      "email": "marc-andre@appel.fun"
+    }
+  ],
+  "require": {
+    "php": ">= 7.0",
+    "voku/urlify": "4.0.0"
+  }
+}
