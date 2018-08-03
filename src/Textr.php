@@ -88,9 +88,9 @@ trait Textr
 	/**
 	 * @brief Converts the string into an ASCII-only string
 	 *
-	 * @param string $text      String to convert
-	 * @param string $locale    Locale to use to convert characters
-	 * @param string $charset   By default UTF-8
+	 * @param string $text
+	 * @param string $locale
+	 * @param string $charset
 	 *
 	 * @return string
 	 */
