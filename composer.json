@@ -1,9 +1,14 @@
 {
   "name": "marcandreappel/textr",
+  "type": "library",
+  "version": "1.1.0",
   "description": "Text manipulation and sanitizing helpers",
-  "minimum-stability": "stable",
+  "keywords": [
+    "marcandreappel",
+    "Textr"
+  ],
+  "homepage": "https://github.com/marcandreappel/Textr",
   "license": "LGPL-3.0",
-  "version": "1.0.0",
   "authors": [
     {
       "name": "Marc-André Appel",
@@ -12,6 +17,7 @@
   ],
   "require": {
     "php": ">= 7.0",
-    "voku/urlify": "4.0.0"
+    "voku/urlify": "4.0.0",
+    "voku/portable-utf8": "5.0.6"
   }
 }
