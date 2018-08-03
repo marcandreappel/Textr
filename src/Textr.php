@@ -11,6 +11,7 @@
 declare(strict_types=1);
 
 use voku\helper\URLify;
+use voku\helper\UTF8;
 
 trait Textr
 {
@@ -111,5 +112,57 @@ trait Textr
 			$text = preg_replace('/[^\\t\\r\\n\\x20-\\x7e]/', '', $text);
 		}
 		return $text;
+	}
+
+	/**
+	 * @brief Shortens and sanitizes a string but only cuts at word boundaries.
+	 *
+	 * @param        $string
+	 * @param int    $length
+	 * @param string $tail
+	 * @param string $charset
+	 *
+	 * @return string
+	 */
+	public function shortify(string $string, int $length = 255, string $tail = '…')
+	{
+		if (intval($length) == 0) 
+		{
+			$length = 255;
+		}
+		$string = strip_tags($string);
+
+		if (UTF8::strlen($string) > $length)
+		{
+			/**
+			 * @brief Replacing whitespace characters
+			 */
+			$string = preg_replace('/\s+?(\S+)?$/', '', UTF8::substr($string, 0, $length + 1));
+			/**
+			 * @brief Needed if the shortened string consists of a single word
+			 */
+			$string = UTF8::substr($string, 0, $length) . $tail;
+		}
+
+		return $string;
+	}
+
+	/**
+	 * @brief Scans passed text and automatically hyperlinks any URL inside it
+	 *
+	 * @param string $input
+	 * @param bool   $target
+	 *
+	 * @return string
+	 */
+	public function linkify(string $input, bool $target = false): string
+	{
+		$target = ($target) ? ' target="_blank" ' : '';
+		$output = preg_replace(
+			'/(http:\/\/|https:\/\/|(www\.))(([^\s<]{4,80})[^\s<]*)/',
+			'<a href="$1$2$3" ' . $target . ' rel="nofollow">$1$2$4</a>',
+			$input);
+		
+		return $output;
 	}
 }
