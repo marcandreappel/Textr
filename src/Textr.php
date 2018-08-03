@@ -10,6 +10,8 @@
 
 declare(strict_types=1);
 
+namespace MarcAndreAppel\Textr;
+
 use voku\helper\URLify;
 use voku\helper\UTF8;
 
