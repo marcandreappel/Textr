@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Textr.php
  * @author      Marc-André Appel <marc-andre@appel.fun>
@@ -8,8 +10,6 @@
  * @created     03/08/2018
  */
 
-declare(strict_types=1);
-
 namespace MarcAndreAppel\Textr;
 
 use voku\helper\URLify;
@@ -18,7 +18,7 @@ use voku\helper\UTF8;
 trait Textr
 {
 	/**
-	 * @brief Formatting a text into a "lowercase-and-dashed" format
+	 * @brief Formatting and cleaning a text into a "lowercase-and-dashed" format
 	 *
 	 * @param string      $text
 	 * @param int         $max_length
@@ -122,7 +122,6 @@ trait Textr
 	 * @param        $string
 	 * @param int    $length
 	 * @param string $tail
-	 * @param string $charset
 	 *
 	 * @return string
 	 */
@@ -149,7 +148,7 @@ trait Textr
 		return $string;
 	}
 
-	/**
+    /**
 	 * @brief Scans passed text and automatically hyperlinks any URL inside it
 	 *
 	 * @param string $input
