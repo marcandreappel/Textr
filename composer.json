@@ -18,7 +18,7 @@
   "require": {
     "php": ">= 7.2",
     "voku/urlify": ">= 4.0.0",
-    "voku/portable-utf8": "5.2.11"
+    "voku/portable-utf8": "5.4.44"
   },
   "autoload": {
     "psr-4": {
